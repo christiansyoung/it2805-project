@@ -18,6 +18,8 @@ Since we use the Bootstrap framework, a lot of scaffolding CSS can be omitted. O
 
 ### Form controls
 
+Every field in the form is validated using Javascript before submitting the data. The email field is checked for an actual valid email adress.
+
 ### XML
 
 ###
