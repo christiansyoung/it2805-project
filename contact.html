@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+    	<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <script>
+      $(window).on('load', function () {
+        $('#form-submit').click(function(e) {
+          e.preventDefault();
+
+          if ($('#form-name').val().length == 0) {
+            $('#flash').html('<div class="alert alert-danger">Not a name</div>');
+            return
+          }
+
+          if ($('#form-message').val().length == 0) {
+            $('#flash').html('<div class="alert alert-danger">Not a message</div>');
+            return
+          }
+
+          var x = $('#form-email').val();
+          console.log(x);
+          var atpos = x.indexOf("@");
+          var dotpos = x.lastIndexOf(".");
+          if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            $('#flash').html('<div class="alert alert-danger">Not an email</div>');
+            return false;
+          }
+
+
+          console.log($('form').serializeArray());
+          var formjsonObj = $('form').serializeArray();
+
+          var xmlString = '<root>';
+
+          $.each(formjsonObj, function () {
+              xmlString += '<' + this.name + '>' + this.value + '</' + this.name + '>';
+          });
+
+          xmlString += '</root>';
+          console.log(xmlString);
+
+          $.ajax({
+            url: '',
+            data: xmlString,
+            type: 'POST',
+            contentType: 'text/xml',
+            dataType: 'text',
+            success: function() {
+              console.log('Successfully sent data below');
+              console.log(xmlString);
+              $('#flash').html('<div class="alert alert-success">The form was sent</div>');
+            },
+            error : function (xhr, ajaxOptions, thrownError){
+              console.log(xhr.status);
+              console.log(thrownError);
+            }
+          });
+        })
+      });
+    </script>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<div class="row clearfix">
+					<div class="col-md-7 logotype">Egge & Young Bootmakers Inc.</div>
+					<div class="col-md-5 main-nav">
+						<a href="#">Home</a>
+						<a href="#">Products</a>
+						<a href="#">Craftsmanship</a>
+						<a href="#">Contact</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+      <div id="flash"></div>
+			<div class="row">
+				<div class="col-md-12">
+
+          <form role="form">
+            <div class="form-group">
+              <label for="form-name">Name</label>
+              <input type="text" class="form-control" id="form-name" placeholder="Enter name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="form-message">Message</label>
+              <input type="text" class="form-control" id="form-message" placeholder="Enter message" name="message" required>
+            </div>
+            <div class="form-group">
+              <label for="form-email">Email</label>
+              <input type="email" class="form-control" id="form-email" placeholder="Enter email" name="email" required>
+              <p class="help-block">We will send our response to your email</p>
+            </div>
+            <button type="submit" class="btn btn-default pull-right" id="form-submit">Submit</button>
+          </form>
+
+        </div>
+			</div>
+		</div>
+	</body>
+</html>
