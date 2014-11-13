@@ -26,7 +26,6 @@
           }
 
           var x = $('#form-email').val();
-          console.log(x);
           var atpos = x.indexOf("@");
           var dotpos = x.lastIndexOf(".");
           if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
@@ -34,8 +33,6 @@
             return false;
           }
 
-
-          console.log($('form').serializeArray());
           var formjsonObj = $('form').serializeArray();
 
           var xmlString = '<root>';
@@ -45,7 +42,6 @@
           });
 
           xmlString += '</root>';
-          console.log(xmlString);
 
           $.ajax({
             url: '',
@@ -94,7 +90,7 @@
             </div>
             <div class="form-group">
               <label for="form-message">Message</label>
-              <input type="text" class="form-control" id="form-message" placeholder="Enter message" name="message" required>
+              <textarea rows="10" class="form-control" id="form-message" placeholder="Enter message" name="message" required></textarea>
             </div>
             <div class="form-group">
               <label for="form-email">Email</label>
