@@ -1,0 +1,18 @@
+body {
+  font-family:Raleway;
+  font-weight:300;
+}
+.logotype {
+  font-size:37px;
+  font-weight:400;
+}
+
+.main-nav {
+  font-size:18px;
+  padding-top:20px;
+  text-align:right;
+}
+
+.main-nav > a {
+  padding-left:10px;
+}
