@@ -13,6 +13,7 @@ For typography we have used "Raleway", a delicate open font which we source from
 
 ###CSS
 
+Since we use the Bootstrap framework, a lot of scaffolding CSS can be omitted. Our CSS file mainly contains font scaling, margins, and some padding here and there.
 
 
 ### Form controls
