@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+    	<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="./order.js"></script>
+
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<div class="row clearfix">
+					<div class="col-md-7 logotype">Egge & Young Bootmakers Inc.</div>
+					<div class="col-md-5 main-nav">
+						<a href="../index.html">Home</a>
+						<a href="../products.html">Products</a>
+						<a href="../craftsmanship.html">Craftsmanship</a>
+						<a href="../contact.html">Contact</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<h2>Galdhøi</h2>
+					<p class="lead">Our loafer on a wide last in suede</p>
+					<img src="./img/galdhoi.jpg" alt="" class="pull-right product-img" width="300px">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique nulla quis leo sagittis, id mattis urna fermentum. Pellentesque convallis, nisi non faucibus ultricies, lectus risus tempor velit, nec faucibus risus turpis at quam. Quisque rhoncus ante nec nulla fringilla malesuada. Duis luctus commodo interdum.
+					</p>
+					<p>Quisque fringilla, turpis at laoreet ultricies, justo est blandit erat, eu convallis risus orci sit amet eros. Donec eu massa vel ante efficitur pretium. Duis et efficitur lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in justo eu enim tempor gravida eget tristique massa. In non mi justo. Morbi semper accumsan urna, in commodo nisl egestas a. Vivamus efficitur elit eu ipsum tristique tempus vitae a arcu.
+					</p>
+					<p class="lead">NOK 4500 <button class="btn buy btn-default" data-id="0">Order</button></p>
+				</div>
+				<div class="col-md-3">
+					<a href="./snohetta.html" class="back-link pull-right">View next item 
+						<i class="glyphicon glyphicon-chevron-right"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title">Order item</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>You have chosen <strong><span class="item-name"></span></strong>, for NOK <span class="item-value"></span></p>
+		        <p>Estimated shipping time is 4 weeks. We ship our orders with Brontosaurus Shipping ASA. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique nulla quis leo sagittis, id mattis urna fermentum. Pellentesque convallis, nisi non faucibus ultricies, lectus risus tempor velit, nec faucibus risus turpis at quam. Quisque rhoncus ante nec nulla fringilla malesuada. 
+		        </p>
+		        <p class="total-line">Total cost including shipping (NOK 300) is NOK <strong><span class="total"></strong></span></p>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Place my order</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</body>
+</html>
