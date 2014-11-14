@@ -1,16 +1,16 @@
-$(window).on('load', function () {
+$(function () {
         $('#form-submit').click(function(e) {
           e.preventDefault();
 
           if ($('#form-name').val().length == 0) {
             $('#form-name').parent().addClass('has-error');
-            $('#flash').html('<div class="alert alert-danger">Not a name</div>');
+            $('#flash').html('<div class="alert alert-danger">No name provided.</div>');
             return
           }
 
           if ($('#form-message').val().length == 0) {
             $('#form-message').parent().addClass('has-error');
-            $('#flash').html('<div class="alert alert-danger">Not a message</div>');
+            $('#flash').html('<div class="alert alert-danger">No message provided.</div>');
             return
           }
 
@@ -19,7 +19,7 @@ $(window).on('load', function () {
           var dotpos = x.lastIndexOf(".");
           if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
             $('#form-email').parent().addClass('has-error');
-            $('#flash').html('<div class="alert alert-danger">Not an email</div>');
+            $('#flash').html('<div class="alert alert-danger">Invalid email address. Please try again.</div>');
             return false;
           }
 
