@@ -1,7 +1,8 @@
 $(function () {
-        $('#form-submit').click(function(e) {
+        $('#form-submit').on('click', function(e) {
           e.preventDefault();
 
+          // Form validations
           if ($('#form-name').val().length == 0) {
             $('#form-name').parent().addClass('has-error');
             $('#flash').html('<div class="alert alert-danger">No name provided.</div>');
@@ -23,10 +24,11 @@ $(function () {
             return false;
           }
 
+          // Send form
           var formjsonObj = $('form').serializeArray();
-
           var xmlString = '<root>';
 
+          // Build XML string
           $.each(formjsonObj, function () {
               xmlString += '<' + this.name + '>' + this.value + '</' + this.name + '>';
           });
@@ -39,6 +41,11 @@ $(function () {
             type: 'POST',
             contentType: 'text/xml',
             dataType: 'text',
+            headers : {
+              'Access-Control-Allow-Methods': 'POST',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'X-Requested-With'
+            },
             success: function() {
               console.log('Successfully sent data below');
               console.log(xmlString);
