@@ -2,17 +2,23 @@ $(function () {
         $('#form-submit').on('click', function(e) {
           e.preventDefault();
 
+          var formErrors = false;
+
           // Form validations
           if ($('#form-name').val().length == 0) {
             $('#form-name').parent().addClass('has-error');
             $('#flash').html('<div class="alert alert-danger">No name provided.</div>');
-            return
+            formErrors = true;
+          } else {
+            $('#form-name').parent().removeClass('has-error');
           }
 
           if ($('#form-message').val().length == 0) {
             $('#form-message').parent().addClass('has-error');
             $('#flash').html('<div class="alert alert-danger">No message provided.</div>');
-            return
+            formErrors = true;
+          } else {
+            $('#form-name').parent().removeClass('has-error');
           }
 
           var x = $('#form-email').val();
@@ -21,7 +27,13 @@ $(function () {
           if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
             $('#form-email').parent().addClass('has-error');
             $('#flash').html('<div class="alert alert-danger">Invalid email address. Please try again.</div>');
-            return false;
+            formErrors = true;
+          } else {
+            $('#form-name').parent().removeClass('has-error');
+          }
+
+          if(formErrors) {
+            return;
           }
 
           // Send form
@@ -50,6 +62,7 @@ $(function () {
               console.log('Successfully sent data below');
               console.log(xmlString);
               $('#flash').html('<div class="alert alert-success">The form was sent</div>');
+              alert(xmlString);
             },
             error : function (xhr, ajaxOptions, thrownError){
               console.log(xhr.status);
